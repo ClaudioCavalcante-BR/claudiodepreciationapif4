@@ -1,0 +1,21 @@
+package br.edu.infnet.mono.model.service;
+
+
+import org.springframework.stereotype.Service;
+
+import br.edu.infnet.mono.model.repository.ComentarioRepository;
+
+
+
+@Service
+public class ComentarioService {
+	
+	
+	 
+	 private final ComentarioRepository comentarioRepository;
+
+	    public ComentarioService(ComentarioRepository comentarioRepository) {
+	        this.comentarioRepository = comentarioRepository;
+	    }
+
+}

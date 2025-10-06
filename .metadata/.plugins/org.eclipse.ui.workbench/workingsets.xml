@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1759723317142_0" label="Java Main Sources" name="Java Main Sources"/>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1759723317149_1" label="Java Test Sources" name="Java Test Sources"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1759723477774_3" label="claudio-parent" name="claudio-parent">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/claudio-parent" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/comman-domain" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/external-api" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/main-app" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1759723317417_2" label="Window Working Set" name="Aggregate for window 1759723317417"/>
+</workingSetManager>

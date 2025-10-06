@@ -1,0 +1,63 @@
+package br.edu.infnet.mono.controllers;
+
+import java.net.URI;
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import br.edu.infnet.mono.clients.ParallelumClient;
+import br.edu.infnet.mono.clients.ParallelumClient.Brand;
+import br.edu.infnet.mono.clients.ParallelumClient.ModelsResponse;
+import br.edu.infnet.mono.clients.ParallelumClient.Year;
+import br.edu.infnet.mono.clients.ParallelumClient.VehicleDetail;
+
+
+import br.edu.infnet.mono.model.domain.AssetCategory;
+import br.edu.infnet.mono.model.domain.Comentario;
+import br.edu.infnet.mono.model.service.AssetCategoryService;
+import br.edu.infnet.mono.model.service.ComentarioService;
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/comentarios")
+public class ComentarioController {
+	
+	 private final ComentarioService comentarioService;
+	
+
+	    public ComentarioController(ComentarioService comentarioService) {
+	        this.comentarioService = comentarioService;
+	        
+	    }
+
+
+	    @GetMapping
+	    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+	    public ResponseEntity<List<Comentario>> listar() {
+	    	List<Comentario> comentarios = comentarioService.obterLista();
+	        return ResponseEntity.ok(comentarios);
+	    }
+
+	    // DELETE (204 No Content)
+	    @DeleteMapping("/{id}")
+	    @PreAuthorize("hasRole('ADMIN')")
+	    @ResponseStatus(HttpStatus.NO_CONTENT)
+	    public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
+	    	comentarioService.excluir(id);
+	        return ResponseEntity.noContent().build(id);
+	    }
+
+}
